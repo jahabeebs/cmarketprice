@@ -3,6 +3,9 @@
     <NuxtLink to="/coffee">
       <CommodityCard commodity="Coffee" />
     </NuxtLink>
+    <NuxtLink to="/coffeetest">
+      <CommodityCard commodity="Coffee" />
+    </NuxtLink>
     <!-- <CommodityCard commodity = "Steel" />
   <CommodityCard commodity = "WTI crude (oil)" />
   <CommodityCard commodity = "Soybeans" />
