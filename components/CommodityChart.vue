@@ -1,20 +1,34 @@
 <script>
-import { Line } from 'vue-chartjs'
+import {Line} from 'vue-chartjs'
 
 export default {
   extends: Line,
   props: {
     chartData: {
-      type: Object,
+      type: Array | Object,
+      required: false,
       default: null
     },
-    options: {
-      type: Object,
-      default: null
+    chartLabels: {
+      type: Array,
+      required: true
     }
   },
-  mounted () {
-    this.renderChart(this.chartData, this.options)
+  mounted() {
+    this.renderChart({
+      labels: this.chartLabels,
+      datasets: [
+        {
+          label: 'price',
+          borderColor: '#249EBF',
+          pointBackgroundColor: 'white',
+          borderWidth: 1,
+          pointBorderColor: '#249EBF',
+          backgroundColor: 'transparent',
+          data: this.chartData
+        }
+      ]
+    }, this.options)
   }
 }
 </script>

@@ -1,8 +1,16 @@
 <template>
   <div class="container">
+    <h1 class="title" v-if="loaded">Coffee (Robustas) Average NY and Le Havre/Marseilles Market Price</h1>
+    <div class="Chart_title">
+      US Dollar per Kilogram ($ / kg)
+    </div>
+    <div class="error-message" v-if="showError">
+      {{ errorMessage }}
+    </div>
     <line-chart
       v-if="loaded"
-      :chartData="chartData"
+      :chartData="prices"
+      :chart-labels="labels"
       :options="options"/>
   </div>
 </template>
@@ -12,23 +20,56 @@ import LineChart from './CommodityChart.vue'
 
 export default {
   name: 'LineChartContainer',
-  components: { LineChart },
+  components: {LineChart},
   data: () => ({
     loaded: false,
-    chartData: null
+    prices: [],
+    labels: [],
+    showError: false,
+    errorMessage: 'Error building graph',
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          },
+          gridLines: {
+            display: true
+          }
+        }],
+        xAxes: [{
+          gridLines: {
+            display: false
+          }
+        }],
+        legend: {
+          display: false
+        },
+        response: true,
+        maintainAspectRatio: false
+      },
+    }
   }),
-  async mounted () {
+  async mounted() {
     this.loaded = false
     try {
-      const { userList } = await fetch('https://alphavantageworker.jacob1725.workers.dev', {
+      const pricesList = await fetch('https://alphavantageworker.jacob1725.workers.dev', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Key': 'Coffee'
+          'Key': "Coffee"
         },
         mode: 'cors'
-      });
-      this.chartData = userList
+      }).catch(err => {
+        this.showError = true
+      })
+      const priceListData = await pricesList.json()
+      for (let i = 0; i < priceListData.length; i++) {
+        this.prices.push(priceListData[i].price)
+      }
+      for (let i = 0; i < priceListData.length; i++) {
+        this.labels.push(priceListData[i].date)
+      }
       this.loaded = true
     } catch (e) {
       console.error(e)
