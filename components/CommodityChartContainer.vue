@@ -11,7 +11,8 @@
       v-if="loaded"
       :chartData="prices"
       :chart-labels="labels"
-      :options="options"/>
+      :options="options"
+      :styles="myStyles"/>
   </div>
 </template>
 
@@ -50,6 +51,14 @@ export default {
       },
     }
   }),
+  computed: {
+    myStyles() {
+      return {
+        // height: `30px`,
+        // position: 'center'
+      }
+    }
+  },
   async mounted() {
     this.loaded = false
     try {
@@ -60,8 +69,9 @@ export default {
           'Key': "Coffee"
         },
         mode: 'cors'
-      }).catch(err => {
+      }).catch((err) => {
         this.showError = true
+        console.error(err)
       })
       const priceListData = await pricesList.json()
       for (let i = 0; i < priceListData.length; i++) {
