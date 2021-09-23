@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex flex-col items-center justify-center">
-    <div class="grid mt-8 gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
+    <div class="grid mt-8 gap-8">
       <div class="flex flex-col">
         <div
           class="
@@ -20,9 +20,6 @@
             <div class="h-full w-full lg:h-24 lg:w-48 lg:mb-0 mb-3">
               <img
                 src="~/assets/beans.svg"
-                alt="{{"
-                commodity
-                }}
                 class="
                   w-full
                   object-scale-down
@@ -46,7 +43,7 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+<script>
 export default {
   props: ["commodity"],
 };
