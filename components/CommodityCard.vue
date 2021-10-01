@@ -1,41 +1,39 @@
 <template>
-  <div class="relative flex flex-col items-center justify-center">
-    <div class="grid mt-8 gap-8">
-      <div class="flex flex-col">
+  <div class="flex flex-col items-center justify-center">
+    <div class="grid mt-12 md:mt-10 md:gap-8">
+      <div class="flex">
         <div
           class="
             bg-white
             shadow-md
             rounded-3xl
             p-4
-            transitionS
+            transitions
             duration-500
             ease-in-out
             transform
-            hover:-translate-y-1
-            hover:scale-110
+            hover: translate-y-1
+            hover: scale-110
           "
         >
-          <div class="flex-none lg:flex">
-            <div class="h-full w-full lg:h-24 lg:w-48 lg:mb-0 mb-3">
-              <img
-                src="~/assets/beans.svg"
-                class="
-                  w-full
+          <div class="flex align-middle">
+            <div class="flex-col justify-evenly">
+              <div class="flex flex-row gap-2">
+                <img
+                  src="~/assets/beans.svg"
+                  class="
+                  h-16
                   object-scale-down
-                  lg:object-cover
-                  lg:h-24
+                  md:object-cover
+                  md:w-full
+                  md:h-24
                   rounded-2xl
                 "
-              />
-            </div>
-            <div class="flex-auto mt-5 ml-3 justify-evenly py-1">
-              <div class="flex flex-wrap">
-                <h2 class="flex-auto text-4xl font-medium">{{ commodity }}</h2>
+                />
+                <div class="flex md:pt-7 text-4xl pt-3 font-small font-black">{{ commodity }}</div>
               </div>
               <p class="mt-3"></p>
-
-              <div class="flex p-4 pb-2 border-t border-gray-200"></div>
+              <div class="flex border-t border-gray-200"></div>
             </div>
           </div>
         </div>

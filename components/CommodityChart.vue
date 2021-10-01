@@ -19,7 +19,7 @@ export default {
       labels: this.chartLabels,
       datasets: [
         {
-          label: 'price',
+          label: '$ per Kilogram',
           borderColor: '#249EBF',
           pointBackgroundColor: 'white',
           borderWidth: 1,

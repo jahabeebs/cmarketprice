@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1 class="title" v-if="loaded">Coffee (Robustas) Average NY and Le Havre/Marseilles Market Price</h1>
-    <div class="Chart_title">
+    <div class="Chart_title" v-if="loaded">
       US Dollar per Kilogram ($ / kg)
     </div>
     <div class="error-message" v-if="showError">
@@ -11,8 +11,7 @@
       v-if="loaded"
       :chartData="prices"
       :chart-labels="labels"
-      :options="options"
-      :styles="myStyles"/>
+      :options="options"/>
   </div>
 </template>
 
@@ -46,19 +45,11 @@ export default {
         legend: {
           display: false
         },
-        response: true,
-        maintainAspectRatio: false
+        responsive: true,
+        maintainAspectRatio: false,
       },
     }
   }),
-  computed: {
-    myStyles() {
-      return {
-        // height: `30px`,
-        // position: 'center'
-      }
-    }
-  },
   async mounted() {
     this.loaded = false
     try {
