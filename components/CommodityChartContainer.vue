@@ -1,17 +1,23 @@
 <template>
   <div class="container">
-    <h1 class="title" v-if="loaded">Coffee (Robustas) Average NY and Le Havre/Marseilles Market Price</h1>
-    <div class="Chart_title" v-if="loaded">
-      US Dollar per Kilogram ($ / kg)
+    <div class="title text-center md:text-2xl sm:text-xs" v-if="loaded">Robustas Average NY and Le Havre/Marseilles
+      Market Price
+    </div>
+    <div class="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">
+      US Dollar per Kilogram
+    </div>
+    <div class="md:text-lg text-center" v-if="loaded">
+      Most recent price: <span class="font-bold">${{ this.prices[this.prices.length - 1] }}/kg</span> on <span
+        class="font-bold">{{ this.labels[this.labels.length - 1] }}</span>
     </div>
     <div class="error-message" v-if="showError">
       {{ errorMessage }}
     </div>
     <line-chart
-      v-if="loaded"
-      :chartData="prices"
-      :chart-labels="labels"
-      :options="options"/>
+        v-if="loaded"
+        :chartData="prices"
+        :chart-labels="labels"
+        :options="options"/>
   </div>
 </template>
 
