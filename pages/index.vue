@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-gray-900">
+  <div class="h-screen bg-gray-900 overscroll-none">
     <h1 class="text-white text-center text-5xl md:text-6xl sm:text-3xl font-bold">Commodity Market Prices</h1>
     <div>
       <NuxtLink to="/coffee">
