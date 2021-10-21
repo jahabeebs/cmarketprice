@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import LineChart from './CommodityChart.vue'
+import LineChart from '~/components/CommodityChart.vue'
 
 export default {
   name: 'LineChartContainer',

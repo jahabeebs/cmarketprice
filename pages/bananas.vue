@@ -1,7 +1,7 @@
 <template>
   <div class="flex container flex-col">
-    <div class="title text-center md:text-2xl sm:text-xs" v-if="loaded">Robustas Average NY and Le Havre/Marseilles
-      Market Price
+    <div class="title text-center md:text-2xl sm:text-xs" v-if="loaded">Bananas (Central & South America), major brands,
+      US import price | FOB Gulf ports (USA)
     </div>
     <div class="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">
       US Dollar per Kilogram
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import LineChart from './CommodityChart.vue'
+import LineChart from '~/components/CommodityChart.vue'
 
 export default {
   name: 'LineChartContainer',
@@ -64,7 +64,7 @@ export default {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Key': "Coffee"
+          'Key': "Bananas"
         },
         mode: 'cors'
       }).catch((err) => {

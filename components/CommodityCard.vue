@@ -1,40 +1,37 @@
 <template>
-  <div class="flex flex-col items-center justify-center">
-    <div class="grid mt-12 md:mt-10 md:gap-8">
-      <div class="flex">
-        <div
-          class="
+  <div class="flex flex-row justify-center">
+    <div class="mt-6 md:mt-8">
+      <div
+        class="
             bg-white
             shadow-md
-            rounded-3xl
-            p-4
-            transitions
+            md:rounded-3xl
+            rounded-2xl
+            p-2
             duration-500
             ease-in-out
             transform
             hover: translate-y-1
             hover: scale-110
           "
-        >
-          <div class="flex align-middle">
-            <div class="flex-col justify-evenly">
-              <div class="flex flex-row gap-2">
-                <img
-                  src="~/assets/beans.svg"
-                  class="
-                  h-16
-                  object-scale-down
+      >
+        <div>
+          <div class="justify-evenly">
+            <div class="flex gap-2">
+              <img
+                :src="imageSource"
+                class="
+                  md:h-24
+                  h-12
                   md:object-cover
                   md:w-full
-                  md:h-24
                   rounded-2xl
                 "
-                />
-                <div class="flex md:pt-7 text-4xl pt-3 font-small font-black">{{ commodity }}</div>
-              </div>
-              <p class="mt-3"></p>
-              <div class="flex border-t border-gray-200"></div>
+              />
+              <div class="md:text-3xl text-lg font-small font-black m-auto">{{ commodity }}</div>
             </div>
+            <p class="mt-2"></p>
+            <div class="border-t border-gray-200"></div>
           </div>
         </div>
       </div>
@@ -43,6 +40,14 @@
 </template>
 <script>
 export default {
-  props: ["commodity"],
+  props: {
+    commodity: String,
+    imageName: String
+  },
+  computed: {
+    imageSource() {
+      return require(`~/assets/${this.imageName}.svg`)
+    }
+  }
 };
 </script>
