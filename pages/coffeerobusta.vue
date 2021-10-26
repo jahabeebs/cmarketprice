@@ -17,7 +17,8 @@
       class="flex"
       v-if="loaded"
       :chartData="prices"
-      :chart-labels="labels"
+      :chart-labels="labels",
+      :label-of-commodity="labelOfCommodity",
       :options="options"/>
   </div>
 </template>
@@ -32,6 +33,7 @@ export default {
     loaded: false,
     prices: [],
     labels: [],
+    labelOfCommodity: '$ per metric ton',
     showError: false,
     errorMessage: 'Error building graph',
     options: {

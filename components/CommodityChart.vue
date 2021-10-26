@@ -12,6 +12,10 @@ export default {
     chartLabels: {
       type: Array,
       required: true
+    },
+    labelOfCommodity: {
+      type: String,
+      required: true
     }
   },
   mounted() {
@@ -19,7 +23,7 @@ export default {
       labels: this.chartLabels,
       datasets: [
         {
-          label: '$ per Kilogram',
+          label: this.labelOfCommodity,
           borderColor: '#249EBF',
           pointBackgroundColor: 'white',
           borderWidth: 1,
