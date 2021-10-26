@@ -34,7 +34,7 @@ export default {
     loaded: false,
     prices: [],
     labels: [],
-    labelOfCommodity: '$ per metric ton',
+    labelOfCommodity: '$ per kg',
     showError: false,
     errorMessage: 'Error building graph',
     options: {

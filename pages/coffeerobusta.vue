@@ -1,24 +1,24 @@
 <template>
-  <div class="flex container flex-col">
-    <div class="title text-center md:text-2xl sm:text-xs" v-if="loaded">Robustas Average NY and Le Havre/Marseilles
-      Market Price
+  <div className="flex container flex-col">
+    <div className="title text-center md:text-2xl sm:text-xs" v-if="loaded">Coffee, Robustas, average New York and
+      Le Havre/Marseilles markets, ex-dock World Market Price
     </div>
-    <div class="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">
+    <div className="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">
       US Dollar per Kilogram
     </div>
-    <div class="md:text-lg text-center" v-if="loaded">
-      Most recent price: <span class="font-bold">${{ this.prices[this.prices.length - 1] }}/kg</span> on <span
-      class="font-bold">{{ this.labels[this.labels.length - 1] }}</span>
+    <div className="md:text-lg text-center" v-if="loaded">
+      Most recent price: <span className="font-bold">${{ this.prices[this.prices.length - 1] }}/kg</span> on <span
+      className="font-bold">{{ this.labels[this.labels.length - 1] }}</span>
     </div>
-    <div class="error-message" v-if="showError">
+    <div className="error-message" v-if="showError">
       {{ errorMessage }}
     </div>
     <line-chart
-      class="flex"
+      className="flex"
       v-if="loaded"
       :chartData="prices"
-      :chart-labels="labels",
-      :label-of-commodity="labelOfCommodity",
+      :chart-labels="labels"
+      :label-of-commodity="labelOfCommodity"
       :options="options"/>
   </div>
 </template>
@@ -33,7 +33,7 @@ export default {
     loaded: false,
     prices: [],
     labels: [],
-    labelOfCommodity: '$ per metric ton',
+    labelOfCommodity: '$ per kg',
     showError: false,
     errorMessage: 'Error building graph',
     options: {
