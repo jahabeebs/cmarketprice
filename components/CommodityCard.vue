@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row justify-center">
-    <div class="mt-6 md:mt-8">
+    <div class="mt-4 md:mt-8">
       <div
         class="
             bg-white
@@ -10,9 +10,9 @@
             p-2
             duration-500
             ease-in-out
-            transform
-            hover: translate-y-1
-            hover: scale-110
+            transform-gpu
+            hover:scale-105
+            hover:translate-y-1
           "
       >
         <div>
