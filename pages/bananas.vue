@@ -1,6 +1,6 @@
 <template>
   <div class="flex container flex-col">
-    <div class="title text-center md:text-2xl sm:text-xs" v-if="loaded">Bananas (Central & South America), major brands,
+    <div class="title font-bold text-center md:text-2xl sm:text-xs" v-if="loaded">Bananas (Central & South America), major brands,
       US import price | FOB Gulf ports (USA)
     </div>
     <div class="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">

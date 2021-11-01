@@ -1,6 +1,6 @@
 <template>
   <div class="flex container flex-col">
-    <div class="title text-center md:text-2xl sm:text-xs" v-if="loaded">Cocoa, average of the first three positions on
+    <div class="title font-bold text-center md:text-2xl sm:text-xs" v-if="loaded">Cocoa, average of the first three positions on
       the terminal markets of New York and London | World
     </div>
     <div class="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">

@@ -1,6 +1,6 @@
 <template>
   <div class="flex container flex-col">
-    <div class="title text-center md:text-2xl sm:text-xs" v-if="loaded">Soybeans (US) | CIF Rotterdam (Netherlands)
+    <div class="title font-bold text-center md:text-2xl sm:text-xs" v-if="loaded">Soybeans (US) | CIF Rotterdam (Netherlands)
     </div>
     <div class="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">
       US Dollar per Metric Ton

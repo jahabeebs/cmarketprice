@@ -1,12 +1,13 @@
 <template>
   <div class="flex container flex-col">
-    <div class="title font-bold text-center md:text-2xl sm:text-xs" v-if="loaded">Palm oil (Malaysia), RBD | FOB Malaysia Ports
+    <div class="title font-bold text-center md:text-2xl sm:text-xs" v-if="loaded">Oranges (Mediterranean exporters) navel, European
+      Union indicative import price | CIF Paris (France)
     </div>
     <div class="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">
-      US Dollar per Metric Ton
+      US Dollar per Kilogram
     </div>
     <div class="md:text-lg text-center" v-if="loaded">
-      Most recent price: <span class="font-bold">${{ this.prices[this.prices.length - 1] }}/mt</span> on <span
+      Most recent price: <span class="font-bold">${{ this.prices[this.prices.length - 1] }}/kg</span> on <span
       class="font-bold">{{ this.labels[this.labels.length - 1] }}</span>
     </div>
     <div class="error-message" v-if="showError">
@@ -32,7 +33,7 @@ export default {
     loaded: false,
     prices: [],
     labels: [],
-    labelOfCommodity: '$ per metric ton',
+    labelOfCommodity: '$ per kg',
     showError: false,
     errorMessage: 'Error building graph',
     options: {
@@ -65,7 +66,7 @@ export default {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Key': "PalmOil"
+          'Key': "Oranges"
         },
         mode: 'cors'
       }).catch((err) => {

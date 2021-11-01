@@ -1,6 +1,6 @@
 <template>
   <div class="flex container flex-col">
-    <div class="title text-center md:text-2xl sm:text-xs" v-if="loaded">Barley (US) feed, No. 2, spot, 20 days To-Arrive
+    <div class="title font-bold text-center md:text-2xl sm:text-xs" v-if="loaded">Barley (US) feed, No. 2, spot, 20 days To-Arrive
       | Minneapolis (USA)
     </div>
     <div class="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">

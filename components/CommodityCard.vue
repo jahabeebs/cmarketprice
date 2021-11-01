@@ -20,6 +20,7 @@
             <div class="flex gap-2">
               <img
                 :src="imageSource"
+                :alt="commodity"
                 class="
                   md:h-24
                   h-12

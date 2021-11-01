@@ -1,20 +1,20 @@
 <template>
-  <div className="flex container flex-col">
-    <div className="title text-center md:text-2xl sm:text-xs" v-if="loaded">Coffee, Robustas, average New York and
-      Le Havre/Marseilles markets, ex-dock World Market Price
+  <div class="flex container flex-col">
+    <div class="title font-bold text-center md:text-2xl sm:text-xs" v-if="loaded">Coffee, Robustas, average New York and
+      Le Havre/Marseilles markets, ex-dock | World
     </div>
-    <div className="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">
+    <div class="Chart_title text-center md:text-2xl sm:text-xs" v-if="loaded">
       US Dollar per Kilogram
     </div>
-    <div className="md:text-lg text-center" v-if="loaded">
-      Most recent price: <span className="font-bold">${{ this.prices[this.prices.length - 1] }}/kg</span> on <span
-      className="font-bold">{{ this.labels[this.labels.length - 1] }}</span>
+    <div class="md:text-lg text-center" v-if="loaded">
+      Most recent price: <span class="font-bold">${{ this.prices[this.prices.length - 1] }}/kg</span> on <span
+      class="font-bold">{{ this.labels[this.labels.length - 1] }}</span>
     </div>
-    <div className="error-message" v-if="showError">
+    <div class="error-message" v-if="showError">
       {{ errorMessage }}
     </div>
     <line-chart
-      className="flex"
+      class="flex"
       v-if="loaded"
       :chartData="prices"
       :chart-labels="labels"
