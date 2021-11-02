@@ -33,6 +33,15 @@
     <NuxtLink to="/soybeans">
       <CommodityCard imageName="soybeans" commodity="Soybeans"/>
     </NuxtLink>
+    <NuxtLink to="/sugar">
+      <CommodityCard imageName="sugar" commodity="Sugar"/>
+    </NuxtLink>
+    <NuxtLink to="/tea">
+      <CommodityCard imageName="tea" commodity="Tea"/>
+    </NuxtLink>
+    <NuxtLink to="/wheat">
+      <CommodityCard imageName="wheat" commodity="Wheat"/>
+    </NuxtLink>
     <p class="align-middle text-xs md:text-sm text-white text-center italic mt-24 sm:mt-12"> This site is only
       for
       informational purposes <br> Accuracy of the prices is not guaranteed <br> Built by Jacob Habib (@jahabeebs)
