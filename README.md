@@ -1,6 +1,11 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 # cmarketprice
+Historical commodity prices visualized using Chart.js; submitted as part of Cloudflare's Developer challenge;
+Cloudflare Workers code is here: https://github.com/jahabeebs/alphavantageworker 
 
-## Build Setup
+## Getting Started
+
+Client-side code build process:
 
 ```bash
 # install dependencies
@@ -16,54 +21,39 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
+To implement the back-end of the project you must register for a free CommoPrices API account to be able to access their free data endpoint. Then, create a Workers KV namespace called PRICES_DB. Set up a Cron job trigger on Cloudflare to ensure new data is pulled into the KV namespace regularly (I recommend a daily trigger). Bind the Cloudflare Worker to the Workers KV using [these](https://developers.cloudflare.com/workers/runtime-apis/kv#kv-bindings) instructions.
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+## Build Snapshot
+Visit https://cmarketprice.com for the production website
 
-## Special Directories
+## Built With
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+Client-side code (HTML, Tailwind CSS, JS):
+    
+[Nuxt.js](https://nuxtjs.org/) - Front-end framework
 
-### `assets`
+[Tailwind CSS](https://tailwindcss.com/) - CSS framework
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+[Vue-chartjs](https://vue-chartjs.org/) - Vue/Nuxt adaptation of Chart.js
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+[nuxtjs/robots](https://www.npmjs.com/package/@nuxtjs/robots) - Middleware to generate a robots.txt for the website
 
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+[Cloudflare Pages](https://pages.cloudflare.com/) - Configured to automatically deploy this repo to production when a successful build is run and avoids CORS issues when working with Cloudflare Workers
 
 
-### `pages`
+Server-side code (Typescript): 
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+[Cloudflare Workers](https://workers.cloudflare.com/) - Coordinates Cron job and allows front-end to fetch commodity prices from a KV namespace
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+[Workers KV](https://developers.cloudflare.com/workers/runtime-apis/kv) - An eventually consistent DB that stores the commodity prices data
 
-### `plugins`
+[Commoprices API](https://api.commoprices.com/) - API used to get free commodity data provided by the World Bank
 
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
+General Tools:
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+[Jetbrains Webstorm](https://www.jetbrains.com/webstorm/) - IDE
 
-### `static`
+[Yarn](https://yarnpkg.com/) - Package Manager
 
-This directory contains your static files. Each file inside this directory is mapped to `/`.
 
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
